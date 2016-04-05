@@ -32,6 +32,7 @@ struct Data
 void* init()
 {
     auto data = cast(Data*).malloc(Data.sizeof);
+    if( data is null ) throw new core.exception.OutOfMemoryError();
     *data = Data.init;
 
     // do module specific initialization
